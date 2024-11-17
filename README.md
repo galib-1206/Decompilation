@@ -4,13 +4,18 @@
 
 This project demonstrates the process of decompiling Python bytecode files (`.pyc`) to retrieve the original source code. It includes steps from creating a Python script (`example.py`), compiling it into bytecode, and then decompiling the bytecode file (`.pyc`) back into a Python source file. The decompiled Python file is saved in the `decompiled_files` folder.
 
+#### **What is a .pyc file?** 
+.pyc files are created by the Python interpreter when a .py file is imported. They contain the “compiled bytecode” of the imported module/program so that the “translation” from source code to bytecode (which only needs to be done once) can be skipped on subsequent imports if the .pyc is newer than the corresponding .py file.
+
+In short, .pyc files are basically treated like a cache; they speed things up, so if they’re present, it can save some time by not having to re-compile the Python source code.
+
 ## Prerequisites
 
 Ensure that you have the following installed on your system:
 
 - **Python** (version 3.9 or higher)
 - **pip3** (for managing Python packages)
-- **`pycdc`** (Python bytecode decompiler)
+- **pycdc** (Python bytecode decompiler)
 
 ## Setup Instructions
 
@@ -43,17 +48,18 @@ After running the above command, you should find the bytecode file example.cpyth
 To decompile the .pyc file, you need to install a Python decompiler. There are several decompilers available, but we will use pycdc in this guide due to its compatibility with Python 3.9 bytecode files.
 
 **Why use pycdc?**
-While there are other decompilers available (e.g., **uncompyle6**, **decompyle++**, **pycdde**), we chose **pycdc** for the following reasons:
 
-**Compatibility with Python 3.9 Bytecode:** Some decompilers, like _uncompyle6_, may not support newer Python versions such as 3.9 or higher. For example, uncompyle6 currently does not support bytecode for Python 3.9 and later (e.g., version 3.9.0 or 3.10).
+While there are other decompilers available (e.g.**uncompyle6**, **decompyle++**, **pycdde**), we chose **pycdc** for the following reasons:
 
-Example error with uncompyle6 for Python 3.9:
+**Compatibility with Python 3.9 Bytecode:** Some decompilers, like *uncompyle6*, may not support newer Python versions such as 3.9 or higher. For example, uncompyle6 currently does not support bytecode for Python 3.9 and later (e.g., version 3.9.0 or 3.10).
+
+#### **Example error with uncompyle6 for Python 3.9:**
 ```bash
 uncompyle6 -o decompiled_files __pycache__/example.cpython-39.pyc
 
 Unsupported Python version, 3.9.0, for decompilation
 ```
-On the other hand, pycdc supports Python 3.9 bytecode, making it a better fit for this project.
+**On the other hand**, pycdc supports Python 3.9 bytecode, making it a better fit for this project.
 
 To install pycdc, run the following command:
 ```bash
@@ -64,7 +70,7 @@ If you encounter issues with pip3, you can install it for the current user using
 ```bash
 pip3 install --user pycdc
 ```
-OR
+or
 
 ```bash
 sudo snap install pycdc
