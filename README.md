@@ -2,7 +2,9 @@
 
 ## Overview
 
-This project demonstrates the process of decompiling Python bytecode files (`.pyc`) to retrieve the original source code. It includes steps from creating a Python script (`example.py`), compiling it into bytecode, and then decompiling the bytecode file (`.pyc`) back into a Python source file. The decompiled Python file is saved in the `decompiled_files` folder.
+**This project demonstrates the process of decompiling Python bytecode files (`.pyc`) to retrieve the original source code.** 
+
+It includes steps from creating a Python script (`example.py`), compiling it into bytecode, and then decompiling the bytecode file (`.pyc`) back into a Python source file. The decompiled Python file is saved in the `decompiled_files` folder.
 
 #### **What is a .pyc file?** 
 .pyc files are created by the Python interpreter when a .py file is imported. They contain the “compiled bytecode” of the imported module/program so that the “translation” from source code to bytecode (which only needs to be done once) can be skipped on subsequent imports if the .pyc is newer than the corresponding .py file.
